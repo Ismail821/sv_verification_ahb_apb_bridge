@@ -1,0 +1,955 @@
+xrun(64): 20.03-s007: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.03-s007: Started on Mar 17, 2023 at 15:48:41 IST
+xrun
+	testbench.sv
+	design.sv
+	-access +rwc
+	-coverage all
+	-covclean
+	-covfile covfile.ccf
+	-covdut ahb_apb_bridge
+Recompiling... reason: file './testbench.sv' is newer than expected.
+	expected: Fri Mar 17 15:45:43 2023
+	actual:   Fri Mar 17 15:48:30 2023
+file: testbench.sv
+	program worklib.test:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x2105121c
+		top
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xmelab: *W,COVNOE: Scoring mode is specified for module 'apb_bridge_intf' on line 3 of file covfile.ccf without enabling expression coverage. There may be other such modules as well.
+
+	Extracting FSMs for coverage:
+		worklib.ahb_apb_bridge
+			FSM extracted for state register fsm_state
+	Total FSMs extracted = 1
+      `AHB_DRIV_IF.HADDR   <= trans_ahb.HTRANS!=2'b00 ? (`AHB_DRIV_IF.HTRANS== 2'b01 ? `AHB_DRIV_IF.HADDR : trans_ahb.HADDR)  : 32'b0;
+                                                                    |
+xmelab: *W,CONOTR (./ahb_driver.sv,47|68): A clocking output is not a legal rvalue [IEEE STD 1800-2009].
+      `AHB_DRIV_IF.HADDR   <= trans_ahb.HTRANS!=2'b00 ? (`AHB_DRIV_IF.HTRANS== 2'b01 ? `AHB_DRIV_IF.HADDR : trans_ahb.HADDR)  : 32'b0;
+                                                                                                  |
+xmelab: *W,CONOTR (./ahb_driver.sv,47|98): A clocking output is not a legal rvalue [IEEE STD 1800-2009].
+      prev_trans           <= `AHB_DRIV_IF.HTRANS[1];
+                                         |
+xmelab: *W,CONOTR (./ahb_driver.sv,55|41): A clocking output is not a legal rvalue [IEEE STD 1800-2009].
+	Building instance overlay tables: ..........
+				$fatal("%0t \t\t [GENERATOR] \n Transaction randomization failed",$time);
+				                                                                |
+xmelab: *W,STRINT (./generator.sv,28|68): String literal argument supplied to integer parameter.
+..........
+xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+ Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVNSO: covfile.ccf:4 Scoring of "event" is not supported for the set_coverable_operators -all command in the current release. However, it will be supported in a future release. To score "event" in the current release, use "-event_or" with the set_coverable_operators command, along with appropriate options of the set_coverable_statements command.
+	Generating native compiled code:
+		worklib.ahb_apb_bridge:sv <0x251e6e02>
+			streams:  16, words: 27817
+		worklib.top:sv <0x67ae88ab>
+			streams:  24, words:  6920
+		worklib.test:sv <0x066853cb>
+			streams:  13, words:  8185
+		worklib.\$unit_0x2105121c :compilation_unit <0x6f93bb39>
+			streams:  19, words: 31283
+		worklib.\$unit_0x2105121c :compilation_unit <0x7e6722e6>
+			streams:   8, words:  8851
+		worklib.\$unit_0x2105121c :compilation_unit <0x5c2c0969>
+			streams:  10, words: 17543
+		worklib.\$unit_0x2105121c :compilation_unit <0x10473452>
+			streams:  11, words: 22347
+		worklib.\$unit_0x2105121c :compilation_unit <0x5a86c317>
+			streams:   8, words: 16293
+		worklib.\$unit_0x2105121c :compilation_unit <0x34612ea8>
+			streams:   8, words: 17270
+		worklib.\$unit_0x2105121c :compilation_unit <0x4291371b>
+			streams:   8, words: 21628
+		worklib.\$unit_0x2105121c :compilation_unit <0x2cb54384>
+			streams:  12, words:  8184
+		worklib.apb_bridge_intf:sv <0x78cbd31e>
+			streams:  29, words: 19481
+		worklib.ahb_bridge_intf:sv <0x16b5f6c1>
+			streams:  31, words: 21068
+		worklib.\$unit_0x2105121c :compilation_unit <0x33cf42fb>
+			streams:   8, words:  9974
+		worklib.\$unit_0x2105121c :compilation_unit <0x6c64b064>
+			streams:   8, words:  9118
+		worklib.\$unit_0x2105121c :compilation_unit <0x5e9da25a>
+			streams:   0, words:     0
+     input [31:0] PRDATA [NO_OF_SLAVES-1:0],
+                       |
+xmelab: *W,COVMDD (./design.sv,63|23): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum' command in the coverage configuration file.
+	Building instance specific data structures.
+xmelab: *W,CGPIDF: Covergroup "per_instance" option , by default, is set as 0.
+xmelab: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                     Instances  Unique
+		Modules:                     2       2
+		Interfaces:                  2       2
+		Programs:                    1       1
+		Registers:                 122     184
+		Scalar wires:               14       -
+		Vectored wires:             19       -
+		Named events:                1       3
+		Always blocks:               6       6
+		Initial blocks:              3       3
+		Clocking blocks:             4       4
+		Clocking items:             38      38
+		Parallel blocks:             2       2
+		Pseudo assignments:         21      21
+		Covergroup Instances:        0       2
+		Compilation units:           1       1
+		SV Class declarations:      12      12
+		SV Class specializations:   12      12
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+xmsim: *W,XCLGNOPTM: The SystemVerilog constraint solver Xceligen options 'seed_only_rand and process_alternate_rng and ignore_worklib_name' are now enabled by default..
+SVSEED default: 1
+xmsim: *W,RNDNOXCEL: A newer version of the SystemVerilog constraint solver is available. It is recommended to enable it using "xrun/xmsim -xceligen on=1903 ..." .
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /home/installs/XCELIUM2003/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,CWDREN: As the '-covcleanworkdir' option is used in simulation, coverage working directory "./cov_work" will be removed and coverage model and data files will be regenerated.
+
+0			[APB_DRIVER] 	Reset Started 
+0			[AHB DRIVER] 	Reset Started
+5			[AHB DRIVER] 	Reset Ended
+5			[APB_DRIVER] 	Reset Ended
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000216	 0  2ff0a4a4	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000007e1	 0  95b32923	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000277	 0  8abf3a78	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000649	 0  b310e338	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000000e4	 1  a55a227b	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   0000044a	 0  a82d09e6	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000006de	 1  2d4d9a63	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000750	 0  af8b2cbd	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000217	 1  dd0f1825	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000189	 1  7a244e7e	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000003b3	 0  24e65e0c	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000004b2	 0  578b2e8b	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000431	 1  aff4532c	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000005b1	 1  e6797c37	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000005ab	 1  52d598ac	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000002ff	 0  0a0991d9	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   0000079f	 1  05eaa26c	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000007b2	 1  c9f171aa	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   000003fa	 0  0d048780	 00000000	 0		 00		
+
+
+5			[APB TRANS] post randomization
+5	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+5		 0		 0		 0		 0		 0		 255		 0		 
+
+
+5			[AHB TRANS] Post randomization
+5 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+5   00000735	 0  b70688d6	 00000000	 0		 00		
+
+APB Driver:main
+13			[APB DRIVER] 1 Driven Values are
+13	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+13		 0x0		 0		 0		 0		 0		 255		 0		 
+
+
+15			[AHB DRIVER] Driven Values are
+15 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+15   00000216	 0  0x2ff0a4a4	 00000000	 0		 00		
+
+15			[APB DRIVER] 2 Driven Values are
+15	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+15		 0x0		 0		 0		 0		 0		 255		 0		 
+
+17			[APB DRIVER] 3 Driven Values are
+17	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+17		 0x0		 0		 0		 0		 0		 255		 0		 
+
+19			[APB DRIVER] 4 Driven Values are
+19	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+19		 0x0		 0		 0		 0		 0		 255		 0		 
+
+19			[AHB MONITOR] 0 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+19   216  	 2  	  0   	2  		4    5  0   1   	854423ed    1    0
+21			[APB DRIVER] 5 Driven Values are
+21	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+21		 0x0		 0		 0		 0		 0		 255		 0		 
+
+21			[APB MONITOR] 0 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+21   216    0  		4
+
+
+21			[SCOREBOARD] 0
+[SCB-PASS]
+HADDR = 0x216, PADDR = 0x216
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x854423ed, PRDATA = 0x1c50098b select = 2
+21			[SCOREBOARD] 0
+
+
+23			[APB DRIVER] 6 Driven Values are
+23	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+23		 0x0		 0		 0		 0		 0		 255		 0		 
+
+
+25			[AHB DRIVER] Driven Values are
+25 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+25   000007e1	 0  0x95b32923	 00000000	 0		 00		
+
+25			[APB DRIVER] 7 Driven Values are
+25	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+25		 0x0		 0		 0		 0		 0		 255		 0		 
+
+27			[APB DRIVER] 8 Driven Values are
+27	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+27		 0x0		 0		 0		 0		 0		 255		 0		 
+
+27			[AHB MONITOR] 1 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+27   7e1  	 2  	  0   	1  		2    9  0   1   	2494be3c    1    0
+29			[APB DRIVER] 9 Driven Values are
+29	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+29		 0x0		 0		 0		 0		 0		 255		 0		 
+
+31			[APB DRIVER] 10 Driven Values are
+31	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+31		 0x0		 0		 0		 0		 0		 255		 0		 
+
+31			[APB MONITOR] 1 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+31   7e1    0  		80
+
+
+31			[SCOREBOARD] 1
+[SCB-PASS]
+HADDR = 0x7e1, PADDR = 0x7e1
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x2494be3c, PRDATA = 0xfcdfe6b5 select = 7
+31			[SCOREBOARD] 1
+
+
+33			[APB DRIVER] 11 Driven Values are
+33	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+33		 0x0		 0		 0		 0		 0		 255		 0		 
+
+
+35			[AHB DRIVER] Driven Values are
+35 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+35   00000277	 0  0x8abf3a78	 00000000	 0		 00		
+
+35			[APB DRIVER] 12 Driven Values are
+35	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+35		 0x0		 0		 0		 0		 0		 255		 0		 
+
+35			[AHB MONITOR] 2 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+35   277  	 2  	  0   	0  		7    11  0   1   	4b2dad92    1    0
+37			[APB DRIVER] 13 Driven Values are
+37	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+37		 0x0		 0		 0		 0		 0		 255		 0		 
+
+39			[APB DRIVER] 14 Driven Values are
+39	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+39		 0x0		 0		 0		 0		 0		 255		 0		 
+
+41			[APB DRIVER] 15 Driven Values are
+41	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+41		 0x0		 0		 0		 0		 0		 255		 0		 
+
+41			[APB MONITOR] 2 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+41   277    0  		4
+
+
+41			[SCOREBOARD] 2
+[SCB-PASS]
+HADDR = 0x277, PADDR = 0x277
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x4b2dad92, PRDATA = 0xfa2d0ffe select = 2
+41			[SCOREBOARD] 2
+
+
+43			[APB DRIVER] 16 Driven Values are
+43	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+43		 0x0		 0		 0		 0		 0		 255		 0		 
+
+43			[AHB MONITOR] 3 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+43   649  	 2  	  0   	1  		0    0  0   1   	fa2d0ffe    1    0
+
+45			[AHB DRIVER] Driven Values are
+45 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+45   00000649	 0  0xb310e338	 00000000	 0		 00		
+
+45			[APB DRIVER] 17 Driven Values are
+45	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+45		 0x0		 0		 0		 0		 0		 255		 0		 
+
+47			[APB DRIVER] 18 Driven Values are
+47	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+47		 0x0		 0		 0		 0		 0		 255		 0		 
+
+
+49			[AHB DRIVER] Driven Values are
+49 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+49   000000e4	 1  0xa55a227b	 00000000	 0		 00		
+
+49			[APB DRIVER] 19 Driven Values are
+49	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+49		 0x0		 0		 0		 0		 0		 255		 0		 
+
+51			[APB DRIVER] 20 Driven Values are
+51	 PADDR	 PWDATA	 PENABLE	 PWRITE	 PSEL	 PREADY	 PSLVERR	
+51		 0x0		 0		 0		 0		 0		 255		 0		 
+
+51			[APB MONITOR] 3 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+51   649    0  		40
+51			[AHB MONITOR] 4 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+51   649  	 2  	  0   	1  		0    0  0   1   	bc579251    1    0
+
+
+51			[SCOREBOARD] 3
+[SCB-PASS]
+HADDR = 0x649, PADDR = 0x649
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0xfa2d0ffe, PRDATA = 0x985bb112 select = 6
+51			[SCOREBOARD] 3
+
+
+55			[APB MONITOR] 4 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+55   e4    2774147707  		1
+
+59			[AHB DRIVER] Driven Values are
+59 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+59   0000044a	 0  0xa82d09e6	 00000000	 0		 00		
+
+59			[AHB MONITOR] 5 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+59   44a  	 2  	  0   	2  		1    13  0   1   	9b1d50e8    1    0
+
+
+59			[SCOREBOARD] 4
+[SCB-FAIL]
+HADDR = 0x44a, PADDR = 0xe4
+[SCB-FAIL]
+HWRITE = 0, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x0, PWDATA = 0xa55a227b select = 0
+59			[SCOREBOARD] 4
+
+
+
+63			[AHB DRIVER] Driven Values are
+63 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+63   000006de	 1  0x2d4d9a63	 00000000	 0		 00		
+
+65			[AHB MONITOR] 6 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+65   6de  	 2  	  1   	1  		6    15  760060515   1   	0    1    0
+65			[APB MONITOR] 5 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+65   44a    0  		10
+69			[APB MONITOR] 6 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+69   6de    760060515  		40
+69			[AHB MONITOR] 7 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+69   750  	 2  	  0   	0  		5    6  0   1   	0    1    0
+
+
+69			[SCOREBOARD] 5
+[SCB-FAIL]
+HADDR = 0x750, PADDR = 0x44a
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x0, PRDATA = 0x9b1d50e8 select = 4
+69			[SCOREBOARD] 5
+
+
+
+73			[AHB DRIVER] Driven Values are
+73 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+73   00000750	 0  0xaf8b2cbd	 00000000	 0		 00		
+
+75			[AHB MONITOR] 8 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+75   750  	 2  	  0   	0  		5    6  0   1   	76ef7006    1    0
+
+77			[AHB DRIVER] Driven Values are
+77 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+77   00000217	 1  0xdd0f1825	 00000000	 0		 00		
+
+79			[APB MONITOR] 7 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+79   750    0  		80
+
+81			[AHB DRIVER] Driven Values are
+81 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+81   00000189	 1  0x7a244e7e	 00000000	 0		 00		
+
+81			[AHB MONITOR] 9 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+81   217  	 2  	  1   	2  		0    8  3708753957   1   	0    1    0
+
+
+81			[SCOREBOARD] 6
+[SCB-FAIL]
+HADDR = 0x217, PADDR = 0x6de
+[SCB-PASS]
+HWRITE = 1, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0xdd0f1825, PWDATA = 0x2d4d9a63 select = 6
+81			[SCOREBOARD] 6
+
+
+83			[APB MONITOR] 8 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+83   217    3708753957  		4
+85			[AHB MONITOR] 10 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+85   189  	 2  	  1   	1  		6    10  2049199742   1   	0    1    0
+87			[APB MONITOR] 9 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+87   189    2049199742  		2
+
+91			[AHB DRIVER] Driven Values are
+91 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+91   000003b3	 0  0x24e65e0c	 00000000	 0		 00		
+
+91			[AHB MONITOR] 11 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+91   3b3  	 2  	  0   	0  		3    1  0   1   	63d51429    1    0
+
+
+91			[SCOREBOARD] 7
+[SCB-FAIL]
+HADDR = 0x3b3, PADDR = 0x750
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x63d51429, PRDATA = 0x76ef7006 select = 7
+91			[SCOREBOARD] 7
+
+
+97			[APB MONITOR] 10 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+97   3b3    0  		8
+99			[AHB MONITOR] 12 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+99   4b2  	 2  	  0   	2  		7    3  0   1   	63d51429    1    0
+
+101			[AHB DRIVER] Driven Values are
+101 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+101   000004b2	 0  0x578b2e8b	 00000000	 0		 00		
+
+
+105			[AHB DRIVER] Driven Values are
+105 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+105   00000431	 1  0xaff4532c	 00000000	 0		 00		
+
+107			[APB MONITOR] 11 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+107   4b2    0  		10
+107			[AHB MONITOR] 13 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+107   4b2  	 2  	  0   	2  		7    3  0   1   	9b1d50e8    1    0
+
+
+107			[SCOREBOARD] 8
+[SCB-FAIL]
+HADDR = 0x4b2, PADDR = 0x217
+[SCB-FAIL]
+HWRITE = 0, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x0, PWDATA = 0xdd0f1825 select = 2
+107			[SCOREBOARD] 8
+
+
+
+109			[AHB DRIVER] Driven Values are
+109 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+109   000005b1	 1  0xe6797c37	 00000000	 0		 00		
+
+111			[APB MONITOR] 12 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+111   431    2952024876  		10
+
+113			[AHB DRIVER] Driven Values are
+113 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+113   000005ab	 1  0x52d598ac	 00000000	 0		 00		
+
+113			[AHB MONITOR] 14 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+113   5b1  	 2  	  1   	2  		5    12  3866721335   1   	0    1    0
+115			[APB MONITOR] 13 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+115   5b1    3866721335  		20
+117			[AHB MONITOR] 15 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+117   5ab  	 2  	  1   	1  		2    4  1389729964   1   	0    1    0
+
+
+117			[SCOREBOARD] 9
+[SCB-FAIL]
+HADDR = 0x5ab, PADDR = 0x189
+[SCB-PASS]
+HWRITE = 1, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x52d598ac, PWDATA = 0x7a244e7e select = 1
+117			[SCOREBOARD] 9
+
+
+119			[APB MONITOR] 14 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+119   5ab    1389729964  		20
+
+123			[AHB DRIVER] Driven Values are
+123 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+123   000002ff	 0  0xa0991d9	 00000000	 0		 00		
+
+123			[AHB MONITOR] 16 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+123   2ff  	 2  	  0   	0  		4    2  0   1   	47a937ce    1    0
+
+127			[AHB DRIVER] Driven Values are
+127 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+127   0000079f	 1  0x5eaa26c	 00000000	 0		 00		
+
+129			[AHB MONITOR] 17 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+129   79f  	 2  	  1   	2  		3    8  99263084   1   	0    1    0
+129			[APB MONITOR] 15 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+129   2ff    0  		4
+
+
+129			[SCOREBOARD] 10
+[SCB-FAIL]
+HADDR = 0x79f, PADDR = 0x3b3
+[SCB-FAIL]
+HWRITE = 1, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x0, PRDATA = 0x63d51429 select = 3
+129			[SCOREBOARD] 10
+
+
+
+131			[AHB DRIVER] Driven Values are
+131 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+131   000007b2	 1  0xc9f171aa	 00000000	 0		 00		
+
+133			[AHB MONITOR] 18 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+133   7b2  	 2  	  1   	1  		4    15  3388043690   1   	0    1    0
+133			[APB MONITOR] 16 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+133   79f    99263084  		80
+137			[APB MONITOR] 17 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+137   7b2    3388043690  		80
+
+141			[AHB DRIVER] Driven Values are
+141 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+141   000003fa	 0  0xd048780	 00000000	 0		 00		
+
+143			[AHB MONITOR] 19 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+143   3fa  	 2  	  0   	1  		5    11  0   1   	63d51429    1    0
+
+
+143			[SCOREBOARD] 11
+[SCB-FAIL]
+HADDR = 0x3fa, PADDR = 0x4b2
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x63d51429, PRDATA = 0x9b1d50e8 select = 4
+143			[SCOREBOARD] 11
+
+
+147			[APB MONITOR] 18 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+147   3fa    0  		8
+
+151			[AHB DRIVER] Driven Values are
+151 	HADDR	 HWRITE	 HWDATA	 HRDATA		 HREADY	 HRESP	
+151   00000735	 0  0xb70688d6	 00000000	 0		 00		
+
+151			[AHB MONITOR] 20 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+151   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+157			[APB MONITOR] 19 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+157   735    0  		80
+159			[AHB MONITOR] 21 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+159   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+159			[SCOREBOARD] 12
+[SCB-FAIL]
+HADDR = 0x735, PADDR = 0x431
+[SCB-FAIL]
+HWRITE = 0, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x0, PWDATA = 0xaff4532c select = 4
+159			[SCOREBOARD] 12
+
+
+167			[APB MONITOR] 20 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+167   735    0  		80
+167			[AHB MONITOR] 22 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+167   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+175			[AHB MONITOR] 23 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+175   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+175			[SCOREBOARD] 13
+[SCB-FAIL]
+HADDR = 0x735, PADDR = 0x5b1
+[SCB-FAIL]
+HWRITE = 0, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x0, PWDATA = 0xe6797c37 select = 5
+175			[SCOREBOARD] 13
+
+
+177			[APB MONITOR] 21 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+177   735    0  		80
+183			[AHB MONITOR] 24 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+183   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+187			[APB MONITOR] 22 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+187   735    0  		80
+191			[AHB MONITOR] 25 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+191   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+191			[SCOREBOARD] 14
+[SCB-FAIL]
+HADDR = 0x735, PADDR = 0x5ab
+[SCB-FAIL]
+HWRITE = 0, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x0, PWDATA = 0x52d598ac select = 5
+191			[SCOREBOARD] 14
+
+
+197			[APB MONITOR] 23 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+197   735    0  		80
+199			[AHB MONITOR] 26 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+199   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+207			[APB MONITOR] 24 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+207   735    0  		80
+207			[AHB MONITOR] 27 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+207   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+207			[SCOREBOARD] 15
+[SCB-FAIL]
+HADDR = 0x735, PADDR = 0x2ff
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x76ef7006, PRDATA = 0x47a937ce select = 2
+207			[SCOREBOARD] 15
+
+
+215			[AHB MONITOR] 28 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+215   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+217			[APB MONITOR] 25 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+217   735    0  		80
+223			[AHB MONITOR] 29 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+223   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+223			[SCOREBOARD] 16
+[SCB-FAIL]
+HADDR = 0x735, PADDR = 0x79f
+[SCB-FAIL]
+HWRITE = 0, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x0, PWDATA = 0x5eaa26c select = 7
+223			[SCOREBOARD] 16
+
+
+227			[APB MONITOR] 26 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+227   735    0  		80
+231			[AHB MONITOR] 30 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+231   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+237			[APB MONITOR] 27 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+237   735    0  		80
+239			[AHB MONITOR] 31 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+239   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+239			[SCOREBOARD] 17
+[SCB-FAIL]
+HADDR = 0x735, PADDR = 0x7b2
+[SCB-FAIL]
+HWRITE = 0, PWRITE = 1
+[SCB-FAIL]
+HWDATA = 0x0, PWDATA = 0xc9f171aa select = 7
+239			[SCOREBOARD] 17
+
+
+247			[APB MONITOR] 28 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+247   735    0  		80
+247			[AHB MONITOR] 32 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+247   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+255			[AHB MONITOR] 33 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+255   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+255			[SCOREBOARD] 18
+[SCB-FAIL]
+HADDR = 0x735, PADDR = 0x3fa
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-FAIL]
+HRDATA = 0x76ef7006, PRDATA = 0x63d51429 select = 3
+255			[SCOREBOARD] 18
+
+
+257			[APB MONITOR] 29 All Transactions sent to Scoreboard
+Time PADDR PWDATA PSEL
+257   735    0  		80
+263			[AHB MONITOR] 34 All Transactions sent to Scoreboard
+Time HADDR HTRANS HWRITE HSIZE HBURST HPROT HWDATA 	HSEL HRDATA HREADY HRESP
+263   735  	 2  	  0   	0  		6    2  0   1   	76ef7006    1    0
+
+
+263			[SCOREBOARD] 19
+[SCB-PASS]
+HADDR = 0x735, PADDR = 0x735
+[SCB-PASS]
+HWRITE = 0, PWRITE = 0
+[SCB-PASS]
+HRDATA = 0x76ef7006, PRDATA = 0x76ef7006 select = 7
+263			[SCOREBOARD] 19
+
+
+
+263			[ENVIRONMENT]
+ post Test
+263			***TEST_FAILED with 42 errors***
+Simulation complete via $finish(1) at time 263 NS + 6
+./environment.sv:86 		$finish;
+xcelium> exit
+xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top.DUT(ahb_apb_bridge)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_372e1ffb_6825273b.ucm
+  data               :  ./cov_work/scope/test/icc_372e1ffb_6825273b.ucd
+TOOL:	xrun(64)	20.03-s007: Exiting on Mar 17, 2023 at 15:48:42 IST  (total: 00:00:01)

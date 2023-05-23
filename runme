@@ -1,0 +1,2 @@
+xrun testbench.sv design.sv -access +rwc -coverage all -covclean -covfile covfile.ccf -covdut ahb_apb_bridge
+imc -batch -init imc.tcl
